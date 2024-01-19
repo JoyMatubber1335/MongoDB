@@ -1,0 +1,44 @@
+mongosh: to entry mongo cli
+show dbd :show all databse
+show collections: show all collection related databse
+use user : entry user database
+db.dropDatabase(): drop the database
+exit: exit the mongosh
+
+
+/////********************* Create ******************************
+
+             -- single create(Insert) :
+ ------------------------------------------------- 
+ db.CollectionName.insertOne({key:"value"})
+    ex: db.users.insertOne({name:"joy"})
+    ex2:db.users.insertOne({name:"rana",age:23, address:{road:2,house:"rnd road"}, hobbise:["cricket","football"]})
+
+              --- multiple create(Insert) : 
+---------------------------------------------------
+db.CollectionName.insertMany([{},{},{}]);
+    ex:db.users.insertMany([{name:"rabbi",age:"23", address:{house:"232"}},{name:"Ayesha" ,age:12, hobbies:["art","watchCurotn"]}])   
+
+
+////******************* Read *******************
+
+                -- Read all 
+--------------------------------------------
+db.CollectionName.find()
+     ex: db.users.find()
+
+--limit/sort or etc..
+-----------
+db.users.find().limit(2)
+
+db.users.find().sort({name:1}).limit(2)  // name:1 = ass order name:-1 mean reverse order
+// skip method that skip or not count in db without this the database is query
+    ex : db.users.find().skip(1).limit(2)
+
+
+// where method //
+ db.users.find({name:"joy"})
+ db.users.find({name:"joy"},{name:1})  // name:1 mean show only name filed
+ db.users.find({name:"rabbi"},{age:0})  // age:0 mean show all without age
+
+ // complex query
