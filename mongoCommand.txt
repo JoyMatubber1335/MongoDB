@@ -42,3 +42,12 @@ db.users.find().sort({name:1}).limit(2)  // name:1 = ass order name:-1 mean reve
  db.users.find({name:"rabbi"},{age:0})  // age:0 mean show all without age
 
  // complex query
+
+ Equal and not Equal :
+   -- appdb>db.users.find({name:{$eq:"rabbi"}})  // Name equal to rabbi
+   -- appdb> db.users.find({name:{$ne:"rabbi"}})  // name not equal to rabbi
+   --db.users.find({age:{$gt:13}})  //age is gatter then 13 
+   -- db.users.find({age:{$lte:23}})  // less then and equal
+   -- db.users.find({name:{$in:["rabbi","Ayesha"]}})  // name equal rabbi and Ayesha ," CASE SENSATIVE"
+   --db.users.find({name:{$nin:["rabbi","Ayesha"]}}) // name is not equal to those
+   -- db.users.find({age:{$exists:true}}) return those filed that have an age
