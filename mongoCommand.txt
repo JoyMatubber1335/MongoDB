@@ -1,5 +1,5 @@
 mongosh: to entry mongo cli
-show dbd :show all databse
+show dbs :show all databse
 show collections: show all collection related databse
 use user : entry user database
 db.dropDatabase(): drop the database
@@ -51,3 +51,16 @@ db.users.find().sort({name:1}).limit(2)  // name:1 = ass order name:-1 mean reve
    -- db.users.find({name:{$in:["rabbi","Ayesha"]}})  // name equal rabbi and Ayesha ," CASE SENSATIVE"
    --db.users.find({name:{$nin:["rabbi","Ayesha"]}}) // name is not equal to those
    -- db.users.find({age:{$exists:true}}) return those filed that have an age
+
+// More complex
+    //---------And-----------
+   --db.users.find({age:{$gte:23,$lte:30}})  // Using add 
+   --db.users.find({age:{$gte:23,$lte:30},name:"rayhan"}) //using add 
+   --db.users.find({$and:[{age:30},{name:"rayhan"}]}) // Another add query
+     //------------Or-------------
+   --db.users.find({$or:[{age:23},{name:"rayhan"}]})
+   //----------not------
+   db.users.find({age:{$not:{$eq:23}}})  // age is not equal 23
+
+
+//------------------------Update--------------------------
