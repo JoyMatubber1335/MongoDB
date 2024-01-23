@@ -64,3 +64,29 @@ db.users.find().sort({name:1}).limit(2)  // name:1 = ass order name:-1 mean reve
 
 
 //------------------------Update--------------------------
+
+--//Update one 
+    db.collection.command
+    db.collection.updateOne({which one we can update },{ $set:{The updated value}})
+    Ex: db.users.updateOne({age:23},{$set:{name:"Rana"}})
+    
+    ---Rename column---
+    db.users.updateOne({age:23},{$rename:{hobbise:"Hobbies"}})
+    
+    --remove some column----
+    db.users.updateOne({age:23},{$unset:{address:""}})
+
+
+    //--------------Update many---------------
+    --db.users.updateMany({age:{$gte:23,$lte:30}},{$inc:{age:1}})
+
+
+    //-----------------DELETE------------------
+
+    //--delete one
+
+    db.collections.command
+    
+    ex:
+    db.users.deleteOne({name:"rabbi"}) //delet one user that the user name is rabbi 
+    
